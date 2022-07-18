@@ -37,7 +37,7 @@ export function MainContainer(){
     return(
         <>
             <div className="mainContainer">
-            <br />
+            <br />  
             <div className="newMoviesContainer">
             {lastestMoviesDB.map((e) => <MovieCard movie={e}/>)}
             </div>
