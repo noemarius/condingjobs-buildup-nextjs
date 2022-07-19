@@ -1,8 +1,15 @@
+import { useEffect, useState } from "react";
+
 function MyApp({ Component, pageProps }) {
-    return (<>
-    <Component {...pageProps} />
-    {/* Reset.css */}
-    <style jsx global>{`
+    const [isClient, setIsClient] = useState(false);
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+    return isClient ? (
+        <>
+            <Component {...pageProps} />
+            {/* Reset.css */}
+            <style jsx global>{`
                 html,
                 body,
                 div,
@@ -128,7 +135,8 @@ function MyApp({ Component, pageProps }) {
                     border-spacing: 0;
                 }
             `}</style>
-    </>)
-  }
+        </>
+    ) : null;
+}
 
-  export default MyApp
+export default MyApp;
